@@ -1,0 +1,28 @@
+# exclude .idea folder except runConfigurations. we want to share the run configurations
+# for more information see http://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
+.idea/*
+!.idea/runConfigurations/
+
+# more Intellij files to ignore
+/atlassian-ide-plugin.xml
+*.iml
+*.ids
+
+# mac stuff to ignore
+**/.DS_Store
+
+# target folders to be ignoreg
+target
+
+# ignore node and bower stuff
+node_modules
+bower_components
+
+docs/
+
+# intermediate stuff that is generated
+char-customization-media/.media_work
+
+
+# dist
+char-customization-client-browser/dist
