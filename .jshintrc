@@ -98,8 +98,15 @@
         "require": false,
         "module": false,
         "__dirname": false,
+        "Buffer": false,
+        // Mocha stuff
         "describe": false,
         "it": false,
-        "Buffer": false
+        "before": false,
+        "after": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "context": false
+
     }
 }

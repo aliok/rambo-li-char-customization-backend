@@ -55,9 +55,9 @@ describe("/api/v1/public/loginWithFacebook", function () {
             // 1ST STYLE. No chai-as-promised
             facebookLoginRequest({"fb_access_token": "SHORT_LIVING_TOKEN"})
                 .then(function (response) {
-                    expect(response.token).to.exist;
-                    expect(response.expires).to.exist;
-                    expect(response.userId).to.exist;
+                    expect(response.token).to.exist.and.to.be.a("string");
+                    expect(response.expires).to.exist.and.to.be.a("number");
+                    expect(response.userId).to.exist.and.to.be.a("string");
                     done();
                 })
                 .catch(commonHelpers.failUponHttpError(done));
@@ -109,7 +109,6 @@ describe("/api/v1/public/loginWithFacebook", function () {
                 .then(function () {
                     facebookLoginRequest({"fb_access_token": "SHORT_LIVING_TOKEN"})
                         .then(function (response2) {
-                            expect(response2.userId).to.exist;
                             expect(response2.userId).to.be.equal(userId);
                             done();
                         });

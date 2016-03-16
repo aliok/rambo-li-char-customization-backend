@@ -5,7 +5,6 @@
  */
 
 const chai = require("chai");
-const request = require("request-promise");
 const expect = chai.expect;
 chai.use(require("chai-as-promised"));
 chai.use(require("chai-string"));
@@ -104,7 +103,7 @@ describe("/api/v1/auth/charCustomization", function () {
 
         context("user doesn't have a customization saved yet", function () {
             it("should insert", function (done) {
-                const promise = Promise.resolve()
+                Promise.resolve()
                     .then(userHelpers.getAccessToken)
                     .then(customizationHelpers.saveValidCustomizationForUserWithToken)
                     .then(userHelpers.getAccessToken)
@@ -128,7 +127,7 @@ describe("/api/v1/auth/charCustomization", function () {
                 // then read
                 // what we read should be the second one
 
-                const promise = Promise.resolve()
+                Promise.resolve()
                     .then(userHelpers.getAccessToken)
                     .then(customizationHelpers.saveValidCustomizationForUserWithToken)
                     .then(userHelpers.getAccessToken)

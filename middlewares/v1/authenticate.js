@@ -5,7 +5,6 @@ const winston = require("winston");
 
 const expressUtils = require("../../utils/expressUtils");
 const userManager = require("../../services/userManager")();
-const constants = require("../../constants");
 const environment = require("../../environment");
 
 /**
