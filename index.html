@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3>char-customization-backend 1.0.0</h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h3>Intro</h3><p>This project is providing backend for character customization of the game <a href="http://rambo.li">Rambo.li</a>.</p>
+<p>See <a href="http://www.aliok.com.tr/projects/2015-10-20-ramboli-01.html">this blog post</a> for more information
+about the technical things and also about the other modules of the game.</p>
+<p>There are 2 consumers of this backend:</p>
+<ol>
+<li>Character customization client: Users customize their characters with this UI.</li>
+<li>Game client: Game client gets the customizations for characters to show them as they
+are designed by users.</li>
+</ol>
+<p>Main tech used:</p>
+<ul>
+<li>Node</li>
+<li>Express</li>
+<li>Canvas (headless)</li>
+<li>MongoDB via Mongoose</li>
+<li>Testing: Mocha, Chai, Mockery</li>
+</ul>
+<p>We use Docker to distribute(through a private Docker registry) and run this application.</p>
+<p>Here is a short video about the game</p>
+<p><a href="http://www.youtube.com/watch?v=-jn-wfxllyo"><img src="http://img.youtube.com/vi/-jn-wfxllyo/0.jpg" alt="video"></a></p>
+<h3>Technique</h3><p>This backend provides stores character customization configurations as well
+as the masks (PNG images) of them.</p>
+<p>Configuration done by client is saved on the database.
+Configuration is drawn on a headless canvas (actually one for each 2 masks) and
+the resulting PNG image is also saved on Mongo database.</p>
+<p>Those images will be served to game clients.</p>
+<p>We don't generate images on demand since it is a very expensive operation and
+changing the customization occurs much much infrequent than getting the masks.</p>
+<p>Facebook login is the only authentication mechanism. However once you're logged
+in, Facebook token is not required anymore since you're provided a custom access token.</p>
+<p>That custom access token is a JWT token. Thus this backend is completely stateless
+and unconnected to any other systems. Clients should fetch the signed tokens and
+pass them around.</p>
+<p>However, we don't want to pass that custom access token to be passed around to other systems.
+As a link from character customization backend to game websocket backend, we have the game tokens.</p>
+<p>Game token is a token that needs to be passed to game websocket backend to prove
+that you're the user you claim to be. This is necessary since we don't have any link
+between the game websocket backend and the character customization backend.
+The reason that we need another token type is we don't want to pass around the
+access token. Game websocket backend is not SSL encrypted. We don't care if a game
+token is stolen: it is only valid for 30 seconds.</p>
+<h3>Technical show off</h3><ul>
+<li>ES6 features are used in the code, so that's why we need Node 4.x.</li>
+<li>Pretty much everything is promisified.</li>
+<li>Tests are in the <code>test/</code> directory and all API calls have integration tests.</li>
+<li>Some services which depend on 3rd party webservices have mock tests.</li>
+<li>Headless canvas works awesome.</li>
+<li>Currently this application is deployed on a private staging system in a Docker container.</li>
+<li>Completely stateless as JWT is used. No need for sticky sessions.</li>
+</ul>
+<h3>API</h3><p>CORS is enabled for all domains.</p>
+<h5>/api/v1/public/loginWithFacebook</h5><p>Example:</p>
+<pre class="prettyprint source"><code>POST /api/v1/public/loginWithFacebook
+PAYLOAD
+    {
+        fb_access_token: ABCDEF
+    }
+RESPONSE
+    STATUS: 200
+    {
+        token: JWT_TOKEN_LIKE_eyJhbGciOiJIU...,
+        expires: 123456789,
+        userId: a283f123d921
+    }</code></pre><p><code>fb_access_token</code>: Short living token that is received using Facebook Javascript API by the client.</p>
+<p>Returns status 401 in case of any error.</p>
+<h5>/api/v1/public/masks/:id</h5><p>Returns the masks for user with given id.</p>
+<p>Doesn't require authentication because a player should see other players' customized characters as well.</p>
+<p>Example:</p>
+<pre class="prettyprint source"><code>GET /api/v1/public/masks/a5d1f73738
+RESPONSE
+    STATUS: 200
+    {
+        mask0: &quot;data:image/png;base64,iVBORw0KGgoAA...==&quot;,
+        mask1: &quot;data:image/png;base64,iVBORw0KGgoBB...==&quot;
+    }</code></pre><p>Returns 500 in case of any error.</p>
+<p>Returned masks are to be used by game clients in conjunction with the animation layer.
+That means, for a player:</p>
+<ul>
+<li>Draw mask0</li>
+<li>Draw animation layer</li>
+<li>Draw mask1</li>
+</ul>
+<h5>/api/v1/auth/charCustomization</h5><p>REST resource for the character customization of a user.</p>
+<p>Requires authentication.</p>
+<p>Read example:</p>
+<pre class="prettyprint source"><code>GET /api/v1/auth/charCustomization
+HEADERS
+    x-access-token: JWT_TOKEN_LIKE_eyJhbGciOiJIU...
+RESPONSE
+    STATUS: 200
+    [
+        {&quot;optionId&quot;:&quot;1000&quot;,&quot;color&quot;:&quot;#0080FF&quot;},
+        {&quot;optionId&quot;:&quot;2016&quot;,&quot;color&quot;:&quot;#FF0000&quot;},
+        {&quot;optionId&quot;:&quot;3005&quot;,&quot;color&quot;:&quot;#0000FF&quot;},
+        {&quot;optionId&quot;:&quot;4004&quot;},
+        {&quot;optionId&quot;:&quot;5010&quot;,&quot;color&quot;:&quot;#FF0000&quot;}
+    ]</code></pre><p>If user doesn't have character customization data saved already, we return a random one from
+the predefined customizations. This helps user to start with some handcrafted customization instead
+of a completely empty character.</p>
+<p>Returns 401 in case of authentication problems and 500 in case of any other errors.</p>
+<p>Update/create example:</p>
+<pre class="prettyprint source"><code>POST /api/v1/auth/charCustomization
+HEADERS
+    x-access-token: JWT_TOKEN_LIKE_eyJhbGciOiJIU...
+PAYLOAD
+    [
+        {&quot;optionId&quot;:&quot;1000&quot;,&quot;color&quot;:&quot;#0080FF&quot;},
+        {&quot;optionId&quot;:&quot;2016&quot;,&quot;color&quot;:&quot;#FF0000&quot;},
+        {&quot;optionId&quot;:&quot;3005&quot;,&quot;color&quot;:&quot;#0000FF&quot;},
+        {&quot;optionId&quot;:&quot;4004&quot;},
+        {&quot;optionId&quot;:&quot;5010&quot;,&quot;color&quot;:&quot;#FF0000&quot;}
+    ]
+RESPONSE
+    STATUS: 200
+    {
+        &quot;OK&quot;: 1
+    }</code></pre><p>We don't use PUT for update and POST for create. We just use POST for both since client doesn't know
+if there is character customization already or not. This is because we return a predefined character
+customization in case there is no character customization already for the user.</p>
+<h5>/api/v1/auth/charCustomization/random</h5><p>This returns a random character customization out of the predefined ones.
+This is useful to show user different possibilities and encourage him/her to customize the character.</p>
+<p>Requires authentication.</p>
+<p>Example:</p>
+<pre class="prettyprint source"><code>GET /api/v1/auth/charParts/random
+HEADERS
+    x-access-token: JWT_TOKEN_LIKE_eyJhbGciOiJIU...
+RESPONSE
+    STATUS:200
+    [
+        {&quot;optionId&quot;:&quot;1000&quot;,&quot;color&quot;:&quot;#0080FF&quot;},
+        {&quot;optionId&quot;:&quot;2016&quot;,&quot;color&quot;:&quot;#FF0000&quot;},
+        {&quot;optionId&quot;:&quot;3005&quot;,&quot;color&quot;:&quot;#0000FF&quot;},
+        {&quot;optionId&quot;:&quot;4004&quot;},
+        {&quot;optionId&quot;:&quot;5010&quot;,&quot;color&quot;:&quot;#FF0000&quot;}
+    ]</code></pre><p>Returns 401 in case of authentication problems and 500 in case of any other errors.</p>
+<h5>/api/v1/auth/gameToken</h5><p>Returns a <em>game token</em>. Game tokens are used to identify someone.
+This is an architectural decision involving many factors like (SSL, performance, websockets, Facebook, etc.)
+so, I am not going to go into details here.</p>
+<p>Clients get a game token and pass it to game websocket backend to claim that they're some person.</p>
+<p>Requires authentication.</p>
+<p>Example:</p>
+<pre class="prettyprint source"><code>GET /api/v1/auth/gameToken
+HEADERS
+    x-access-token: JWT_TOKEN_LIKE_eyJhbGciOiJIU...
+RESPONSE
+    STATUS:200
+    {
+        token: JWT_GAME_TOKEN_LIKE_eyJhbGciOiJIU...,
+        expires: 1278954112459
+    }</code></pre><p>Returns 401 in case of authentication problems and 500 in case of any other errors.</p>
+<h3>Development environment setup</h3><p>Install OS-level dependencies.
+These are MongoDB and Cairo.</p>
+<p>MongoDB is used as the database to store user information.
+Cairo is used for having a Canvas in Node environment.</p>
+<p>OSX instructions:</p>
+<pre class="prettyprint source"><code>brew install mongo
+# do following or
+# see https://github.com/Automattic/node-canvas/wiki/_pages
+# and https://github.com/Automattic/node-canvas/issues/348
+xcode-select --install
+brew install cairo gobject-introspection pixman jpeg libjpeg
+
+# install Node dependencies
+npm install</code></pre><h3>Run devl</h3><p>Start your MongoDB first and create a database called <code>catalli-cc</code>.</p>
+<pre class="prettyprint source"><code>mongo
+>$ use catalli-cc</code></pre><p>Then start the app:</p>
+<pre class="prettyprint source"><code>CATALLI_ACCESS_TOKEN_SECRET=&lt;SOME SECRET TO SIGN JWT ACCESS TOKENS>
+CATALLI_GAME_TOKEN_SECRET=&lt;SOME SECRET TO SIGN JWT GAME TOKENS>
+CATALLI_DATABASE_URL=&quot;mongodb://localhost/catalli-cc&quot; \
+CATALLI_DEBUG=&quot;true&quot; \
+CATALLI_FACEBOOK_TOKEN=&lt;TOKEN YOU GOT FROM FACEBOOK> \
+CATALLI_FACEBOOK_CLIENT_ID=&lt;CLIENT ID YOU GOT FROM FACEBOOK> \
+CATALLI_FACEBOOK_SECRET=&lt;SECRET YOU GOT FROM FACEBOOK> \
+node server.js</code></pre><p>I would recommend creating a IDE run configuration for that.</p>
+<h3>Running tests</h3><pre class="prettyprint source"><code>npm run test</code></pre><h3>Generating documentation</h3><pre class="prettyprint source"><code>npm run generate-docs</code></pre><h3>Preparing for distribution</h3><p>See https://blog.risingstack.com/node-js-production-checklist/</p>
+<pre class="prettyprint source"><code># change version
+vi package.json
+# bump the version:
+# see http://semver.org/
+# 0.0.1-snapshot -> 0.0.1            (when releasing)
+# 0.0.1-snapshot -> 0.0.1-snapshot   (no need to change for just another snapshot)
+# 0.0.1          -> 0.0.2-snapshot   (when starting development on new version)
+
+# lock versions
+npm shrinkwrap
+
+# install nsp if necessary
+npm install nsp --global
+
+# use nsp
+nsp check
+# in case of problems found, fix necessary things on package.json and start with `npm shrinkwrap` again</code></pre><h3>Create distributable</h3><p>Build image</p>
+<pre class="prettyprint source"><code>docker build -t catalli-local/catalli-cc-backend .</code></pre><p>First of all, test the distributable on your machine. That means, run the Docker container on your local
+and then push it to private registry.</p>
+<p>BTW, you need to configure your MongoDB so that it accepts connections from outside.
+See following:</p>
+<ul>
+<li>http://stackoverflow.com/questions/20778771/what-is-the-difference-between-0-0-0-0-127-0-0-1-and-localhost</li>
+<li>http://stackoverflow.com/questions/18412850/cannot-connect-to-mongodb-using-machine-ip</li>
+</ul>
+<p>Build image:</p>
+<pre class="prettyprint source"><code>docker run -p 4100:4100 --rm=true \
+    --env CATALLI_ACCESS_TOKEN_SECRET=&lt;SOME SECRET TO SIGN JWT ACCESS TOKENS> \
+    --env CATALLI_GAME_TOKEN_SECRET=&lt;SOME SECRET TO SIGN JWT GAME TOKENS>     \
+    --env CATALLI_DATABASE_URL=&quot;mongodb://&lt;IP_OF_YOUR_MACHINE>/catalli-cc&quot; \
+    --env CATALLI_DEBUG=&quot;true&quot; \
+    --env CATALLI_FACEBOOK_TOKEN=&lt;TOKEN YOU GOT FROM FACEBOOK> \
+    --env CATALLI_FACEBOOK_CLIENT_ID=&lt;CLIENT ID YOU GOT FROM FACEBOOK> \
+    --env CATALLI_FACEBOOK_SECRET=&lt;SECRET YOU GOT FROM FACEBOOK> \
+    catalli-local/catalli-cc-backend</code></pre><p>Make sure you replace <IP_OF_YOUR_MACHINE>!</p>
+<p>Maybe do some more tests. On OSX, go to <http://192.168.99.100:4100/>.</p>
+<p>Ok, all good. Your image is awesome.</p>
+<h3>Tag and push distributable</h3><p>Assume you've just built the image and you want to mark it as version <strong>4.21.9</strong>.
+Then do:</p>
+<pre class="prettyprint source"><code># tag locally
+docker tag catalli-local/catalli-cc-backend catalli-local/catalli-cc-backend:4.21.9
+# tag for registry
+docker tag catalli-local/catalli-cc-backend:4.21.9 &lt;DOCKER_REGISTRY_URL>/catalli-cc-backend:4.21.9
+# push to registry
+docker push &lt;DOCKER_REGISTRY_URL>/catalli-cc-backend:4.21.9
+# this takes a while for the first time... it might be ~300 MB</code></pre><p>We use version names like <strong>4.21.9</strong> for releases and tag <strong>latest</strong> for snapshots.
+That means, when you want to push a new snapshot, do following:</p>
+<pre class="prettyprint source"><code># tag for registry
+docker tag catalli-local/catalli-cc-backend &lt;DOCKER_REGISTRY_URL>/catalli-cc-backend:latest
+docker push &lt;DOCKER_REGISTRY_URL>/catalli-cc-backend:latest</code></pre><h3>Deploy</h3><h5>Configuring the target system</h5><p>We need to pass some environment variables to application. We're gonna use <code>--env-file</code> option of Docker.
+So, let's prepare that file.</p>
+<pre class="prettyprint source"><code>sudo mkdir -p /usr/local/catalli-cc-backend/
+sudo vi /usr/local/catalli-cc-backend/env.list
+# paste following
+    CATALLI_ACCESS_TOKEN_SECRET=&lt;SOME SECRET TO SIGN JWT ACCESS TOKENS>  /
+    CATALLI_GAME_TOKEN_SECRET=&lt;SOME SECRET TO SIGN JWT GAME TOKENS>      /
+    CATALLI_DATABASE_URL=&quot;mongodb://&lt;HOSTNAME_OF_THE_MONGODB_MACHINE>/catalli-cc&quot; \
+    CATALLI_DEBUG=&quot;true&quot; \
+    CATALLI_FACEBOOK_TOKEN=&lt;TOKEN YOU GOT FROM FACEBOOK> \
+    CATALLI_FACEBOOK_CLIENT_ID=&lt;CLIENT ID YOU GOT FROM FACEBOOK> \
+    CATALLI_FACEBOOK_SECRET=&lt;SECRET YOU GOT FROM FACEBOOK> \</code></pre><p>And adapt stuff which are in &lt;&gt;.</p>
+<h5>Run the application on the target system</h5><p>If not already logged in, login to registry:</p>
+<pre class="prettyprint source"><code>docker login &lt;DOCKER_REGISTRY_URL>
+# use the CI user</code></pre><p>Pull the image and run it:</p>
+<pre class="prettyprint source"><code>docker pull &lt;DOCKER_REGISTRY_URL>/catalli-cc-backend:&lt;VERSION>
+
+docker run -p 4100:4100 -d \
+        --add-host &lt;HOSTNAME_OF_THE_MONGODB_MACHINE>:&lt;IP_OF_THE_MONGODB_MACHINE> \
+        --env-file /usr/local/catalli-cc-backend/env.list      \
+        &lt;DOCKER_REGISTRY_URL>/catalli-cc-backend:&lt;VERSION></code></pre><p>Make sure you adapt <code>&lt;VERSION&gt;</code>!</p>
+<p>Give it a try:</p>
+<pre class="prettyprint source"><code>curl &lt;HOSTNAME_OF_THE_TARGET_SYSTEM>:4100/api/v1/public/masks/560a50768dfe8a247459e917
+# it is ok to see `{&quot;status&quot;:400,&quot;message&quot;:&quot;User not found&quot;}`</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-environment.html">environment</a></li><li><a href="module-middlewares_v1_authenticate.html">middlewares/v1/authenticate</a></li><li><a href="module-routes_v1_api.html">routes/v1/api</a></li><li><a href="module-routes_v1_login.html">routes/v1/login</a></li><li><a href="module-routes_v1_utils.html">routes/v1/utils</a></li><li><a href="module-services_customizationValidator.html">services/customizationValidator</a></li><li><a href="module-services_facebook.html">services/facebook</a></li><li><a href="module-services_optionData.html">services/optionData</a></li><li><a href="module-services_optionDataLoader.html">services/optionDataLoader</a></li><li><a href="module-services_userManager.html">services/userManager</a></li><li><a href="module-test_app-integration-helper-commons.html">test/app-integration-helper-commons</a></li><li><a href="module-test_app-integration-helper-customization.html">test/app-integration-helper-customization</a></li><li><a href="module-test_app-integration-helper-user.html">test/app-integration-helper-user</a></li><li><a href="module-utils_commonUtils.html">utils/commonUtils</a></li><li><a href="module-utils_expressUtils.html">utils/expressUtils</a></li></ul><h3>Classes</h3><ul><li><a href="User.html">User</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 17:52:48 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

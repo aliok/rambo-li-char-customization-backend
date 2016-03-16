@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: constants</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: constants</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>This is where the we keep constants. Do not add minor things in here.</p></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".accessTokenExpireDays"><span class="type-signature">(static) </span>accessTokenExpireDays<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Access token is the token that allows doing character customization.
+This token expires after 60 DAYS; not very soon.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".animationLayer_Z_Index"><span class="type-signature">(static) </span>animationLayer_Z_Index<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Z-index of the animation layer. We need this since we would like to show
+some things over the animation layer.
+To elaborate:</p>
+<ul>
+<li>layer#0: has things like eyes, mouth</li>
+<li>animation layer: has things like moving foot, moving weapon</li>
+<li>layer#1: has things like hat</li>
+</ul>
+<p>Reason is, we want to show things in layer#1 on top of the weapons.</p>
+<p>This z-index is used to determine whether objects are in layer#0 or layer#1.
+e.g. mouth has a z-index of 200 and hat has a z-index of 20000.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".envVarKeys"><span class="type-signature">(static) </span>envVarKeys<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>These are the names of the environment variables that are used.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-environment.html"><code>module:environment</code></a> for their details.</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".facebookAPIVersion"><span class="type-signature">(static) </span>facebookAPIVersion<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>What version of Facebook API do we use?</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".gameTokenExpireSeconds"><span class="type-signature">(static) </span>gameTokenExpireSeconds<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Game token is the token that allows verification of identity.
+This token expires after 30 SECONDS; it should be used immediately.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".jwtAlgorithm"><span class="type-signature">(static) </span>jwtAlgorithm<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Algorithm to use when signing JWT tokens.
+We use a complex signing algorithm.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".listenHost"><span class="type-signature">(static) </span>listenHost<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Host to bind to.
+It is ok to listen this ip always because using 0.0.0.0 means binding
+to all IPs. We're gonna have a firewall anyway to filter access.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".listenPort"><span class="type-signature">(static) </span>listenPort<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Port to listen to.
+Let's use a hardcoded port value. Target environment should be fine with it.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".maskHeight"><span class="type-signature">(static) </span>maskHeight<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Height of character customization masks (generated PNG images).</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".maskWidth"><span class="type-signature">(static) </span>maskWidth<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Width of character customization masks (generated PNG images).</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line72">line 72</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-environment.html">environment</a></li><li><a href="module-middlewares_v1_authenticate.html">middlewares/v1/authenticate</a></li><li><a href="module-routes_v1_api.html">routes/v1/api</a></li><li><a href="module-routes_v1_login.html">routes/v1/login</a></li><li><a href="module-routes_v1_utils.html">routes/v1/utils</a></li><li><a href="module-services_customizationValidator.html">services/customizationValidator</a></li><li><a href="module-services_facebook.html">services/facebook</a></li><li><a href="module-services_optionData.html">services/optionData</a></li><li><a href="module-services_optionDataLoader.html">services/optionDataLoader</a></li><li><a href="module-services_userManager.html">services/userManager</a></li><li><a href="module-test_app-integration-helper-commons.html">test/app-integration-helper-commons</a></li><li><a href="module-test_app-integration-helper-customization.html">test/app-integration-helper-customization</a></li><li><a href="module-test_app-integration-helper-user.html">test/app-integration-helper-user</a></li><li><a href="module-utils_commonUtils.html">utils/commonUtils</a></li><li><a href="module-utils_expressUtils.html">utils/expressUtils</a></li></ul><h3>Classes</h3><ul><li><a href="User.html">User</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 17:52:48 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

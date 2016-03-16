@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: services/customizationValidator.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: services/customizationValidator.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const _ = require("underscore");
+const winston = require("winston");
+
+const optionData = require("./optionData");
+const optionGroups = optionData.optionGroups;
+const optionsMap = optionData.optionsMap;
+
+
+/**
+ * Validates given character customization.
+ *
+ * A character customization given by user is like following:
+ *
+ * ```
+ * [{"optionId": 1000, "color": "#DDDDDD"},
+ *  {"optionId": 2000, "color": "#DDDDDD"},
+ *  {"optionId": 7002}]
+ * ```
+ *
+ * Option group rules:
+ * - There must be a selection for each group with forceSelect=true
+ * - Number of selected options for a group must be less than allowed maximum for the group
+ *
+ * Option rules:
+ * - Selected options must exist
+ * - If color is not received for a selected option, color must not have color selection required
+ * - If color is received, colors must be allowed for that option and received one is in the allowed colors list
+ *
+ *
+ * @module services/customizationValidator
+ * @param {UserCharPart[]} charParts  - character customization
+ * @return {string|undefined} A meaningful message in case of problems; `undefined` otherwise
+ */
+
+module.exports = function (charParts) {
+    // --------- OPTION VALIDATION PROCEDURE ---------------
+    // - check if all selected parts exist
+    //    - if color is not received, check if a color is required
+    //    - if color is received, check if colors are allowed and received one is in the list
+
+    // --------- OPTION GROUP VALIDATION PROCEDURE ---------------
+    // - create a map of &lt;groupId, charPart[]>
+    // - validate groups
+    //    - check if there is a selection for each group with forceSelect=true
+    //    - check if number of selected options for a group is &lt; allowMax
+    //    -
+
+    if (_.isEmpty(charParts)) {
+        return "No character customization is provided";
+    }
+
+    if (!_.isArray(charParts)) {
+        return "Character customization provided is not an array";
+    }
+
+    // --------- OPTION VALIDATION PROCEDURE ---------------
+    for (let charPart of charParts) {
+        const validationError = validateSingleCharPart(charPart);
+        if (validationError) {
+            return validationError;
+        }
+    }
+
+    // --------- OPTION GROUP VALIDATION PROCEDURE ---------------
+    // - create a map of &lt;groupId, charPart[]>
+    const groupCharPartsMap = _.groupBy(charParts, function (charPart) {
+        return optionsMap[charPart.optionId].groupId;
+    });
+    for (let optionGroup of optionGroups) {
+        const userSelectedPartsForGroup = groupCharPartsMap[optionGroup.id];
+        const validationError = validateSelectedCharPartsForGroup(optionGroup, userSelectedPartsForGroup);
+        if (validationError) {
+            return validationError;
+        }
+    }
+
+    return undefined;
+};
+
+function validateSingleCharPart(charPart) {
+    if (!charPart) {
+        return "Falsy char part : " + JSON.stringify(charPart);
+    }
+    const optionId = charPart.optionId;
+    const color = charPart.color;
+
+    if (!optionId || !_.isFinite(optionId)) {
+        winston.debug("Invalid option id : %s", charPart);
+        return "Invalid option id : " + charPart.optionId;
+    }
+
+    // - check if all selected parts exist
+    if (!_.has(optionsMap, optionId)) {
+        winston.debug("Option doesn't exist: %s", charPart);
+        return "Option doesn't exist: " + charPart.optionId;
+    }
+
+    const option = optionsMap[optionId];
+    if (color) {
+        const optionColors = option.colors;
+
+        //    - if color is not selected, do not allow color selection
+        if (!optionColors) {
+            winston.debug("Option doesn't have colors, but a color is received: %s", charPart);
+            return "Option doesn't have colors, but a color is received: " + option.name;
+        }
+
+        //    - if color is selected, check if colors are allowed and selected one is in the list
+        const indexOfSelectedColor = _.indexOf(optionColors, color);
+        if (indexOfSelectedColor &lt; 0) {
+            winston.debug("Given color is not allowed for the option: %s ", charPart);
+            return "Given color is not allowed for the option: " + option.name;
+        }
+    }
+
+    return undefined;
+}
+
+function validateSelectedCharPartsForGroup(optionGroup, userSelectedPartsForGroup) {
+    //    - check if there is a selection for each group with forceSelect=true
+    if (optionGroup.forceSelect) {
+        if (_.isEmpty(userSelectedPartsForGroup)) {
+            winston.debug("Selection is required for the group: %s" + optionGroup);
+            return "Selection is required for the group: " + JSON.stringify(_.pick(optionGroup, "id", "name"));
+        }
+    }
+
+    if (_.isEmpty(userSelectedPartsForGroup)) {
+        // no force select, nothing selected.. just skip it
+        return undefined;
+    }
+
+    //    - check if number of selected options for a group is &lt; allowMax
+    if (optionGroup.allowMax) {
+        if (userSelectedPartsForGroup.length > optionGroup.allowMax) {
+            winston.debug("Too many options selected for group: %s" + userSelectedPartsForGroup);
+            return "Too many options selected for group: " + JSON.stringify(userSelectedPartsForGroup);
+        }
+    }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-environment.html">environment</a></li><li><a href="module-middlewares_v1_authenticate.html">middlewares/v1/authenticate</a></li><li><a href="module-routes_v1_api.html">routes/v1/api</a></li><li><a href="module-routes_v1_login.html">routes/v1/login</a></li><li><a href="module-routes_v1_utils.html">routes/v1/utils</a></li><li><a href="module-services_customizationValidator.html">services/customizationValidator</a></li><li><a href="module-services_facebook.html">services/facebook</a></li><li><a href="module-services_optionData.html">services/optionData</a></li><li><a href="module-services_optionDataLoader.html">services/optionDataLoader</a></li><li><a href="module-services_userManager.html">services/userManager</a></li><li><a href="module-test_app-integration-helper-commons.html">test/app-integration-helper-commons</a></li><li><a href="module-test_app-integration-helper-customization.html">test/app-integration-helper-customization</a></li><li><a href="module-test_app-integration-helper-user.html">test/app-integration-helper-user</a></li><li><a href="module-utils_commonUtils.html">utils/commonUtils</a></li><li><a href="module-utils_expressUtils.html">utils/expressUtils</a></li></ul><h3>Classes</h3><ul><li><a href="User.html">User</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 17:52:48 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: services/userManager.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: services/userManager.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+// import the promisified Mongoose from our app
+const app = require("../app");
+const mongoose = app.mongoose;
+
+/* jshint ignore:start */
+const Promise = require("bluebird");
+/* jshint ignore:end */
+const winston = require("winston");
+
+const User = mongoose.model("User");
+
+/**
+ * Provides basic functionality for user persistence operations.
+ *
+ * @module services/userManager
+ */
+module.exports = UserManager;
+
+/**
+ * Creates a new user manager.
+ *
+ * @alias module:services/userManager
+ * @throws {Error} when there is a problem with passed parameters
+ */
+
+function UserManager() {
+
+    return {
+        /**
+         * Finds user by id.
+         *
+         * @function
+         * @instance
+         * @param {string} id - id of the user to find
+         * @return {Promise&lt;User,Error>}
+         */
+        findUserById: findUserById,
+
+        /**
+         * Finds user by Facebook user id.
+         *
+         * @function
+         * @instance
+         * @param {string} facebookUserId - Facebook id of the user to find
+         * @return {Promise&lt;User,Error>}
+         */
+        findUserByFacebookUserId: findUserByFacebookUserId,
+
+        /**
+         * Creates a new user and returns a promise resolves to the created user.
+         *
+         * @function
+         * @instance
+         * @param {FacebookUserData} facebookUserData - User data
+         * @return {Promise&lt;User,Error>}
+         */
+        createUser: createUser,
+
+        /**
+         * Updates given user in the database and returns a promise resolves to that user.
+         *
+         * @function
+         * @instance
+         * @param {FacebookUserData} facebookUserData - User data
+         * @return {Promise&lt;User,Error>}
+         */
+        updateUser: updateUser
+    };
+
+    function findUserById(id) {
+        return User
+            .findByIdAsync(id)
+            .catch(logErrorAndReject);
+    }
+
+
+    function findUserByFacebookUserId(facebookUserId) {
+        return User
+            .findOneAsync({"facebook.facebookUserId": facebookUserId})
+            .catch(logErrorAndReject);
+    }
+
+    function createUser(facebookUserData) {
+        const user = new User({
+            mask0: null,
+            mask1: null,
+            charParts: [],
+            facebook: facebookUserData
+        });
+
+        return user
+            .saveAsync()
+            .catch(logErrorAndReject);
+    }
+
+    function updateUser(user, userFacebookData) {
+        // do not use findOneAndUpdate as validations are not applied!
+        user.facebook = userFacebookData;
+
+        return user
+            .saveAsync()
+            .catch(logErrorAndReject);
+    }
+}
+
+function logErrorAndReject(err) {
+    winston.error("Error during DB operation");
+    winston.error(err);
+    //following makes sure another `catch` (reject handler) is called
+    return Promise.reject(err);
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-environment.html">environment</a></li><li><a href="module-middlewares_v1_authenticate.html">middlewares/v1/authenticate</a></li><li><a href="module-routes_v1_api.html">routes/v1/api</a></li><li><a href="module-routes_v1_login.html">routes/v1/login</a></li><li><a href="module-routes_v1_utils.html">routes/v1/utils</a></li><li><a href="module-services_customizationValidator.html">services/customizationValidator</a></li><li><a href="module-services_facebook.html">services/facebook</a></li><li><a href="module-services_optionData.html">services/optionData</a></li><li><a href="module-services_optionDataLoader.html">services/optionDataLoader</a></li><li><a href="module-services_userManager.html">services/userManager</a></li><li><a href="module-test_app-integration-helper-commons.html">test/app-integration-helper-commons</a></li><li><a href="module-test_app-integration-helper-customization.html">test/app-integration-helper-customization</a></li><li><a href="module-test_app-integration-helper-user.html">test/app-integration-helper-user</a></li><li><a href="module-utils_commonUtils.html">utils/commonUtils</a></li><li><a href="module-utils_expressUtils.html">utils/expressUtils</a></li></ul><h3>Classes</h3><ul><li><a href="User.html">User</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 17:52:48 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

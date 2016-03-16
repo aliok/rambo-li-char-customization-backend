@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: test/app-integration-test-helper-customization.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: test/app-integration-test-helper-customization.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const _ = require("underscore");
+const request = require("request-promise");
+
+const commonHelpers = require("./app-integration-test-helper-commons");
+
+/**
+ * Provides character customization utilities used in integration tests.
+ * @module test/app-integration-helper-customization
+ */
+const helper = module.exports = {
+
+    validCustomization: [
+        {"optionId": 1000, "color": "#D99958"},
+        {"optionId": 2014, "color": "#000000"},
+        {"optionId": 3004, "color": "#515158"},
+        {"optionId": 4001},
+        {"optionId": 7007}
+    ],
+
+    validCustomizationAlternative: [
+        {"optionId": 1000, "color": "#C0C0C0"},
+        {"optionId": 2019},
+        {"optionId": 3002, "color": "#DDDD22"},
+        {"optionId": 4004},
+        {"optionId": 5006, "color": "#FF0000"},
+        {"optionId": 7011, "color": "#00A2C2"}
+    ],
+
+    invalidCustomization: [],
+
+    /**
+     * Posts a request to save a valid sample customization for user with given token.
+     * @return {Promise&lt;Response>}
+     */
+    saveValidCustomizationForUserWithToken: function (token) {
+        const url = commonHelpers.baseUrl + "/api/v1/auth/charCustomization";
+        const options = {
+            method: "POST",
+            uri: url,
+            body: helper.validCustomization,
+            headers: {
+                "x-access-token": token
+            },
+            json: true
+        };
+
+        return request(options);
+    },
+
+    /**
+     * Posts a request to save a valid sample customization for user with given token.
+     * @return {Promise&lt;Response>}
+     */
+    saveValidAlternativeCustomizationForUserWithToken: function (token) {
+        const url = commonHelpers.baseUrl + "/api/v1/auth/charCustomization";
+        const options = {
+            method: "POST",
+            uri: url,
+            body: helper.validCustomizationAlternative,
+            headers: {
+                "x-access-token": token
+            },
+            json: true
+        };
+
+        return request(options);
+    },
+
+    /**
+     * Posts a request to save an invalid sample customization for user with given token.
+     * @return {Promise&lt;Response>}
+     */
+    saveInvalidCustomizationForUserWithToken: function (token) {
+        const url = commonHelpers.baseUrl + "/api/v1/auth/charCustomization";
+        const options = {
+            method: "POST",
+            uri: url,
+            body: helper.invalidCustomization,
+            headers: {
+                "x-access-token": token
+            },
+            json: true
+        };
+
+        return request(options);
+    },
+
+    /**
+     * Posts a request to get the customization for user with given token.
+     * @return {Promise&lt;Response>}
+     */
+    getCustomizationForUserWithToken: function (token) {
+        const url = commonHelpers.baseUrl + "/api/v1/auth/charCustomization";
+        const options = {
+            method: "GET",
+            uri: url,
+            headers: {
+                "x-access-token": token
+            },
+            json: true
+        };
+
+        return request(options);
+    },
+
+    /**
+     * Posts a request to get a random customization for user with given token.
+     * @return {Promise&lt;Response>}
+     */
+    getRandomCustomizationForUserWithToken: function (token) {
+        const url = commonHelpers.baseUrl + "/api/v1/auth/charCustomization/random";
+        const options = {
+            method: "GET",
+            uri: url,
+            headers: {
+                "x-access-token": token
+            },
+            json: true
+        };
+
+        return request(options);
+    },
+
+
+    /**
+     * Customization data received from server might include metadata.
+     * This makes testing harder since deep equals from Chai won't work.
+     * Let's omit everything except the real stuff.
+     * @param customization
+     */
+    stripCustomization(customization){
+        return _.map(customization, function (item) {
+            return _.pick(item, ["optionId", "color"]);
+        });
+    }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-environment.html">environment</a></li><li><a href="module-middlewares_v1_authenticate.html">middlewares/v1/authenticate</a></li><li><a href="module-routes_v1_api.html">routes/v1/api</a></li><li><a href="module-routes_v1_login.html">routes/v1/login</a></li><li><a href="module-routes_v1_utils.html">routes/v1/utils</a></li><li><a href="module-services_customizationValidator.html">services/customizationValidator</a></li><li><a href="module-services_facebook.html">services/facebook</a></li><li><a href="module-services_optionData.html">services/optionData</a></li><li><a href="module-services_optionDataLoader.html">services/optionDataLoader</a></li><li><a href="module-services_userManager.html">services/userManager</a></li><li><a href="module-test_app-integration-helper-commons.html">test/app-integration-helper-commons</a></li><li><a href="module-test_app-integration-helper-customization.html">test/app-integration-helper-customization</a></li><li><a href="module-test_app-integration-helper-user.html">test/app-integration-helper-user</a></li><li><a href="module-utils_commonUtils.html">utils/commonUtils</a></li><li><a href="module-utils_expressUtils.html">utils/expressUtils</a></li></ul><h3>Classes</h3><ul><li><a href="User.html">User</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 17:52:48 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
