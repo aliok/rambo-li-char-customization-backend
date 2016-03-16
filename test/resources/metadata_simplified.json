@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "name": "Skin",
+    "allowMax": 1,
+    "forceSelect": true,
+    "zIndex": 100,
+    "options": [
+      {
+        "name": "Skin",
+        "resource": "skin",
+        "colors": [
+          "#27160E",
+          "#935837"
+        ],
+        "id": 1000,
+        "groupId": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Eye",
+    "allowMax": 1,
+    "forceSelect": true,
+    "zIndex": 400,
+    "options": [
+      {
+        "name": "Asian",
+        "resource": "eye_asian",
+        "colors": false,
+        "id": 2000,
+        "groupId": 2
+      },
+      {
+        "name": "Anime",
+        "resource": "eye_anime",
+        "colors": [
+          "#000000",
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "thumbColor": "#000000",
+        "id": 2001,
+        "groupId": 2
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Hat",
+    "allowMax": 1,
+    "forceSelect": false,
+    "zIndex": 20000,
+    "options": [
+      {
+        "name": "Headband",
+        "resource": "hat_headband",
+        "colors": [
+          "#00B0F4",
+          "#FFFF00",
+          "#3A3A3A"
+        ],
+        "thumbColor": "#00B0F4",
+        "id": 7000,
+        "groupId": 7
+      },
+      {
+        "name": "Baseball cap",
+        "resource": "hat_baseball_cap",
+        "colors": [
+          "#00B0F4",
+          "#3A3A3A"
+        ],
+        "thumbColor": "#00B0F4",
+        "id": 7001,
+        "groupId": 7
+      },
+      {
+        "name": "Future Employer",
+        "resource": "hat_future_employer",
+        "colors": false,
+        "id": 7002,
+        "groupId": 7
+      }
+    ]
+  }
+]

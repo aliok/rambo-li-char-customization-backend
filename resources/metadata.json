@@ -1,0 +1,1299 @@
+[
+    {
+        "id": 1,
+        "name": "Skin",
+        "allowMax": 1,
+        "forceSelect": true,
+        "zIndex": 100,
+        "options": [
+            {
+                "name": "Skin",
+                "resource": "skin",
+                "colors": [
+                    "#27160E",
+                    "#935837",
+                    "#724A2C",
+                    "#D99958",
+                    "#A27D47",
+                    "#684E16",
+                    "#706250",
+                    "#0000FF",
+                    "#292B36",
+                    "#0080FF",
+                    "#AA4E31",
+                    "#C0C0C0",
+                    "#DDDD22"
+                ],
+                "id": 1000,
+                "groupId": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Eye",
+        "allowMax": 1,
+        "forceSelect": true,
+        "zIndex": 400,
+        "options": [
+            {
+                "name": "Asian",
+                "resource": "eye_asian",
+                "colors": false,
+                "id": 2000,
+                "groupId": 2
+            },
+            {
+                "name": "Anime",
+                "resource": "eye_anime",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2001,
+                "groupId": 2
+            },
+            {
+                "name": "Angry",
+                "resource": "eye_angry",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2002,
+                "groupId": 2
+            },
+            {
+                "name": "Big",
+                "resource": "eye_big",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2003,
+                "groupId": 2
+            },
+            {
+                "name": "Lashes",
+                "resource": "eye_lashes",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2004,
+                "groupId": 2
+            },
+            {
+                "name": "Long Lashes",
+                "resource": "eye_lashes_long",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2005,
+                "groupId": 2
+            },
+            {
+                "name": "Round",
+                "resource": "eye_round",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2006,
+                "groupId": 2
+            },
+            {
+                "name": "Blue",
+                "resource": "eye_blue",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2007,
+                "groupId": 2
+            },
+            {
+                "name": "Coder",
+                "resource": "eye_coder",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2008,
+                "groupId": 2
+            },
+            {
+                "name": "Evil Baby",
+                "resource": "eye_evil_baby",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2009,
+                "groupId": 2
+            },
+            {
+                "name": "Ezik",
+                "resource": "eye_ezik",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2010,
+                "groupId": 2
+            },
+            {
+                "name": "Goat",
+                "resource": "eye_goat",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2011,
+                "groupId": 2
+            },
+            {
+                "name": "Happy",
+                "resource": "eye_happy",
+                "colors": false,
+                "id": 2012,
+                "groupId": 2
+            },
+            {
+                "name": "Horrified",
+                "resource": "eye_horrified",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2013,
+                "groupId": 2
+            },
+            {
+                "name": "Red",
+                "resource": "eye_red",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2014,
+                "groupId": 2
+            },
+            {
+                "name": "Sleeping",
+                "resource": "eye_sleeping",
+                "colors": false,
+                "id": 2015,
+                "groupId": 2
+            },
+            {
+                "name": "Sleepy",
+                "resource": "eye_sleepy",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2016,
+                "groupId": 2
+            },
+            {
+                "name": "Stoned",
+                "resource": "eye_stoned",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2017,
+                "groupId": 2
+            },
+            {
+                "name": "Strabismus",
+                "resource": "eye_strabismus",
+                "colors": [
+                    "#000000",
+                    "#663333",
+                    "#7C7C7C",
+                    "#81BADD",
+                    "#579EC9",
+                    "#57C957",
+                    "#DDDD22",
+                    "#FF0000",
+                    "#FFFFFF"
+                ],
+                "thumbColor": "#000000",
+                "id": 2018,
+                "groupId": 2
+            },
+            {
+                "name": "XD",
+                "resource": "eye_xd",
+                "colors": false,
+                "id": 2019,
+                "groupId": 2
+            },
+            {
+                "name": "Zombie",
+                "resource": "eye_zombie",
+                "colors": false,
+                "id": 2020,
+                "groupId": 2
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Eyebrow",
+        "allowMax": 1,
+        "forceSelect": true,
+        "zIndex": 410,
+        "options": [
+            {
+                "name": "Angry",
+                "resource": "eyebrow_angry",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3000,
+                "groupId": 3
+            },
+            {
+                "name": "Asian",
+                "resource": "eyebrow_asian",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3001,
+                "groupId": 3
+            },
+            {
+                "name": "Brush",
+                "resource": "eyebrow_brush",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3002,
+                "groupId": 3
+            },
+            {
+                "name": "Regular",
+                "resource": "eyebrow_regular",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3003,
+                "groupId": 3
+            },
+            {
+                "name": "Regular+",
+                "resource": "eyebrow_regular2",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3004,
+                "groupId": 3
+            },
+            {
+                "name": "Some basketballer",
+                "resource": "eyebrow_some_basketball_player",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3005,
+                "groupId": 3
+            },
+            {
+                "name": "Unibrow",
+                "resource": "eyebrow_unibrow",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3006,
+                "groupId": 3
+            },
+            {
+                "name": "Woman",
+                "resource": "eyebrow_woman",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3007,
+                "groupId": 3
+            },
+            {
+                "name": "Ezik",
+                "resource": "eyebrow_ezik",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 3008,
+                "groupId": 3
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Mouth",
+        "allowMax": 1,
+        "forceSelect": true,
+        "zIndex": 200,
+        "options": [
+            {
+                "name": "None",
+                "resource": "mouth_none",
+                "id": 4000,
+                "groupId": 4
+            },
+            {
+                "name": "Regular",
+                "resource": "mouth_regular",
+                "id": 4001,
+                "groupId": 4
+            },
+            {
+                "name": "Happy",
+                "resource": "mouth_happy",
+                "id": 4002,
+                "groupId": 4
+            },
+            {
+                "name": "Shocked",
+                "resource": "mouth_shocked",
+                "id": 4003,
+                "groupId": 4
+            },
+            {
+                "name": "Sad",
+                "resource": "mouth_sad",
+                "id": 4004,
+                "groupId": 4
+            },
+            {
+                "name": "Joker",
+                "resource": "mouth_joker",
+                "id": 4005,
+                "groupId": 4
+            },
+            {
+                "name": "Ayhan Tas",
+                "resource": "mouth_ayhan_tas",
+                "id": 4006,
+                "groupId": 4
+            },
+            {
+                "name": "Kavak yelleri",
+                "resource": "mouth_kavak_yelleri",
+                "id": 4007,
+                "groupId": 4
+            },
+            {
+                "name": "Lipstick",
+                "resource": "mouth_lipstick",
+                "id": 4008,
+                "groupId": 4
+            },
+            {
+                "name": "Maniac",
+                "resource": "mouth_maniac",
+                "id": 4009,
+                "groupId": 4
+            },
+            {
+                "name": "Matrix",
+                "resource": "mouth_matrix",
+                "id": 4010,
+                "groupId": 4
+            },
+            {
+                "name": "Meth",
+                "resource": "mouth_meth",
+                "id": 4011,
+                "groupId": 4
+            },
+            {
+                "name": "Teeth",
+                "resource": "mouth_teeth",
+                "id": 4012,
+                "groupId": 4
+            },
+            {
+                "name": "Vampire",
+                "resource": "mouth_vampire",
+                "id": 4013,
+                "groupId": 4
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Hair",
+        "allowMax": 1,
+        "forceSelect": false,
+        "zIndex": 500,
+        "options": [
+            {
+                "name": "Short",
+                "resource": "hair_short",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5000,
+                "groupId": 5
+            },
+            {
+                "name": "Center",
+                "resource": "hair_center",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5001,
+                "groupId": 5
+            },
+            {
+                "name": "Evil baby",
+                "resource": "hair_evil_baby",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5002,
+                "groupId": 5
+            },
+            {
+                "name": "Alaburus",
+                "resource": "hair_alaburus",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5003,
+                "groupId": 5
+            },
+            {
+                "name": "Cool",
+                "resource": "hair_cool",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5004,
+                "groupId": 5
+            },
+            {
+                "name": "UFO",
+                "resource": "hair_ufo",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5005,
+                "groupId": 5
+            },
+            {
+                "name": "Waves",
+                "resource": "hair_waves",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5006,
+                "groupId": 5
+            },
+            {
+                "name": "Punk",
+                "resource": "hair_punk",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5007,
+                "groupId": 5
+            },
+            {
+                "name": "Astor",
+                "resource": "hair_astor",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5008,
+                "groupId": 5
+            },
+            {
+                "name": "B Team",
+                "resource": "hair_b_team",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5009,
+                "groupId": 5
+            },
+            {
+                "name": "Bosphorus",
+                "resource": "hair_bosphorus",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5010,
+                "groupId": 5
+            },
+            {
+                "name": "Emo",
+                "resource": "hair_emo",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5011,
+                "groupId": 5
+            },
+            {
+                "name": "Last fart bender",
+                "resource": "hair_last_fart_bender",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5012,
+                "groupId": 5
+            },
+            {
+                "name": "Easter Egg",
+                "resource": "hair_easter_egg",
+                "colors": [
+                    "#333333",
+                    "#857051",
+                    "#605240",
+                    "#838794",
+                    "#515158",
+                    "#FF0000",
+                    "#FFFFFF",
+                    "#FF30D7",
+                    "#00FF00",
+                    "#0000FF",
+                    "#DDDD22",
+                    "#00FFFF"
+                ],
+                "thumbColor": "#333333",
+                "id": 5013,
+                "groupId": 5
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Hat",
+        "allowMax": 1,
+        "forceSelect": false,
+        "zIndex": 20000,
+        "options": [
+            {
+                "name": "Headband",
+                "resource": "hat_headband",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7000,
+                "groupId": 7
+            },
+            {
+                "name": "Baseball cap",
+                "resource": "hat_baseball_cap",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7001,
+                "groupId": 7
+            },
+            {
+                "name": "Future Employer",
+                "resource": "hat_future_employer",
+                "colors": false,
+                "id": 7002,
+                "groupId": 7
+            },
+            {
+                "name": "Ottoman",
+                "resource": "hat_ottoman",
+                "colors": false,
+                "id": 7003,
+                "groupId": 7
+            },
+            {
+                "name": "Witch",
+                "resource": "hat_witch",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7004,
+                "groupId": 7
+            },
+            {
+                "name": "Women",
+                "resource": "hat_women",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7005,
+                "groupId": 7
+            },
+            {
+                "name": "Fat",
+                "resource": "hat_fat",
+                "colors": false,
+                "id": 7006,
+                "groupId": 7
+            },
+            {
+                "name": "Mexican",
+                "resource": "hat_mexican",
+                "colors": false,
+                "id": 7007,
+                "groupId": 7
+            },
+            {
+                "name": "Takke",
+                "resource": "hat_takke",
+                "colors": false,
+                "id": 7008,
+                "groupId": 7
+            },
+            {
+                "name": "Detective",
+                "resource": "hat_detective",
+                "colors": false,
+                "id": 7009,
+                "groupId": 7
+            },
+            {
+                "name": "Driver",
+                "resource": "hat_driver",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7010,
+                "groupId": 7
+            },
+            {
+                "name": "Grad",
+                "resource": "hat_grad",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7011,
+                "groupId": 7
+            },
+            {
+                "name": "Kavuk",
+                "resource": "hat_kavuk",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7012,
+                "groupId": 7
+            },
+            {
+                "name": "Desert",
+                "resource": "hat_desert",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7013,
+                "groupId": 7
+            },
+            {
+                "name": "Horn",
+                "resource": "hat_horn",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7014,
+                "groupId": 7
+            },
+            {
+                "name": "The Mouse",
+                "resource": "hat_the_mouse",
+                "colors": [
+                    "#00B0F4",
+                    "#263F8F",
+                    "#00A2C2",
+                    "#512D17",
+                    "#026E4C",
+                    "#008862",
+                    "#4AD031",
+                    "#C1C4C9",
+                    "#FF8841",
+                    "#6A2286",
+                    "#6B1D51",
+                    "#B12592",
+                    "#9A87C7",
+                    "#FFA2BF",
+                    "#FD3E9D",
+                    "#EF2D35",
+                    "#FFFFFF",
+                    "#E6FDF5",
+                    "#FFFF00",
+                    "#3A3A3A"
+                ],
+                "thumbColor": "#00B0F4",
+                "id": 7015,
+                "groupId": 7
+            }
+        ]
+    }
+]
