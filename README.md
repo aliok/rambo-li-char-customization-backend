@@ -19,7 +19,7 @@ We use Docker to distribute(through a private Docker registry) and run this appl
 
 Here is a short video about the game
  
-[![video](http://img.youtube.com/vi/-jn-wfxllyo/0.jpg)](http://www.youtube.com/watch?v=-jn-wfxllyo)
+[![video](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/-jn-wfxllyo?t=35s "Everything Is AWESOME")
 
 ### Technique
 
