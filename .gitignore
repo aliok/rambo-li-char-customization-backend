@@ -14,15 +14,7 @@
 # target folders to be ignoreg
 target
 
-# ignore node and bower stuff
+# ignore node modules
 node_modules
-bower_components
 
-docs/
-
-# intermediate stuff that is generated
-char-customization-media/.media_work
-
-
-# dist
-char-customization-client-browser/dist
+docs
