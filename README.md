@@ -2,6 +2,9 @@
 
 This project is providing backend for character customization of the game [Rambo.li](http://rambo.li).
 
+See [this blog post](http://www.aliok.com.tr/projects/2015-10-20-ramboli-01.html) for more information
+about the technical things and also about the other modules of the game.
+
 There are 2 consumers of this backend:
 
 1. Character customization client: Users customize their characters with this UI.
