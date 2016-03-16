@@ -17,6 +17,8 @@ Main tech used:
 
 We use Docker to distribute(through a private Docker registry) and run this application.
 
+Here is a short video (unfortunately in bad resolution)
+[![video](http://img.youtube.com/vi/-jn-wfxllyo/0.jpg)](http://www.youtube.com/watch?v=-jn-wfxllyo)
 
 ### Technique
 
